@@ -1,13 +1,12 @@
 using System;
 using System.Web.Mvc;
-
 namespace MvcExamples
 {
     public class ArchiveController : Controller
     {
-        public string Entry(DateTime entryDate)
+        public ActionResult Entry(DateTime entryDate)
         {
-            return "You requested the entry from " + entryDate.ToString();
+            return Content("You requested the entry from " + entryDate.ToString());
         }
     }
 }
