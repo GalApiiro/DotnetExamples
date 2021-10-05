@@ -15,7 +15,7 @@ namespace MvcExamples
             routes.MapRoute(
                 "EventsSince2",
                 "EventsSince2/{action}/{entryDate}",
-            new { controller = "Events", action = "Since" }
+            new { controller = "Events" }
                 );
             routes.MapRoute(
                 "Until",
