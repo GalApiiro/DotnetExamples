@@ -4,6 +4,7 @@ namespace MvcExamples
 {
     public class ThirdEventsController : Controller
     {
+        [HttpPost]
         public ActionResult Until(DateTime entryDate)
         {
             return Content("You requested the events until " + entryDate.ToString());
