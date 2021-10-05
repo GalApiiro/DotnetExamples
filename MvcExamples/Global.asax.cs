@@ -7,21 +7,31 @@ namespace MvcExamples
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
-                "Blog",                                           // Route name
-                "Archive/{entryDate}",                            // URL with parameters
-                new { controller = "Archive", action = "Entry" }  // Parameter defaults
-            );
+                "EventsSince1",
+                "EventsSince1/{action}/{entryDate}",
+            new { controller = "Events", action = "Since" }
+                );
             routes.MapRoute(
-                "Default",                                              // Route name
-                "{controller}/{action}/{id}",                           // URL with parameters
-                new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
-            );
+                "EventsSince2",
+                "EventsSince2/{action}/{entryDate}",
+            new { controller = "Events", action = "Since" }
+                );
+            routes.MapRoute(
+                "Until",
+                "{controller}/Until/{entryDate}",
+            new { action = "Until" }
+                );
+            routes.MapRoute(
+                "Default",
+                "{controller}/{action}/{id}",
+            new { controller = "Home", action = "Index", id = "" }
+                );
         }
+                
         protected void Application_Start()
         {
             RegisterRoutes(RouteTable.Routes);
         }
-    }
+    }  
 }
