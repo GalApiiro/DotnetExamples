@@ -3,9 +3,9 @@ using System.Web.Routing;
 
 namespace MvcExamples
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class Global : HttpApplication
     {
-        public static void RegisterRoutes(RouteCollection routes)
+        private static void RegisterRoutes1(RouteCollection routes)
         {
             routes.MapRoute(
                 "EventsSince1",
@@ -28,10 +28,25 @@ namespace MvcExamples
             new { controller = "Home", action = "Index", id = "" }
                 );
         }
+        
+        private static void RegisterAnimalRoutes(RouteCollection routes)
+        {
+            routes.MapRoute(
+                "Animal",
+                "animal/{action}",
+                new { controller = "Animal", }
+            );
+            routes.MapRoute(
+                "AnimalByMember",
+                "animal/{action}/member/{member}",
+                new { controller = "Animal", }
+            );
+        }
                 
         protected void Application_Start()
         {
-            RegisterRoutes(RouteTable.Routes);
+            RegisterRoutes1(RouteTable.Routes);
+            RegisterAnimalRoutes(RouteTable.Routes);
         }
     }  
 }
