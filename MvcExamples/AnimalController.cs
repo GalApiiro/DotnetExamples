@@ -6,6 +6,7 @@ namespace MvcExamples
     {
         public ActionResult FindMembers(MemberQuery memberQuery)
         {
+            var a = EventsController.GetNum();
             return null;
         }
     }
