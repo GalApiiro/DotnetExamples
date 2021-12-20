@@ -11,7 +11,12 @@ namespace MvcExamples
         }
                     
         public string NoAction(){
+            var a = GetStr();
             return "This is not an action method";
+        }
+
+        public int GetStr(){
+            return "5";
         }
 
         public static int GetNum(){
